@@ -18,7 +18,8 @@ public class Page1 {
 		this.driver=Driver.getDriver();
 		PageFactory.initElements(driver, this);
 	}
-
+	@FindBy(xpath="//h5[contains(text(),'Below is a list of the fifty U.S. states in alphabetical order:')]/following-sibling::ul/li")
+	public List<WebElement> states;
 
 
 }
