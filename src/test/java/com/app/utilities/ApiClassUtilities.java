@@ -2,6 +2,7 @@ package com.app.utilities;
 
 import com.google.gson.JsonObject;
 import io.restassured.response.Response;
+import org.apache.commons.lang.RandomStringUtils;
 
 import java.util.Map;
 
@@ -34,6 +35,14 @@ public class ApiClassUtilities {
     public Response post(Map<String, String> headers, JsonObject body){
         uri=baseuri+endPoint;
         return given().headers(headers).body(body.toString()).when().post(uri);
+    }
+
+
+    public void addName(){
+        jsonObject.getAsJsonObject("name").addProperty("name", RandomStringUtils.random(10,true,false));
+    }
+    public void addName(String name){
+        jsonObject.getAsJsonObject("name").addProperty("name", name);
     }
 
 
