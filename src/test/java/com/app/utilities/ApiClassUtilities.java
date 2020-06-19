@@ -12,23 +12,30 @@ public class ApiClassUtilities {
     public JsonObject jsonObject  = new JsonObject();
     public String baseuri = "";
     public String endPoint = "";
+    public String uri = "";
 
 
 
-
-    public Response put(Map<String, String> headers, JsonObject body, String uri){
+    public Response put(Map<String, String> headers, JsonObject body){
+        uri=baseuri+endPoint;
         return given().headers(headers).body(body.toString()).when().put(uri);
     }
 
-    public Response put( JsonObject body, String uri){
+    public Response put( JsonObject body){
+        uri=baseuri+endPoint;
         return given().contentType("application/json").body(body.toString()).when().put(uri);
     }
 
-    public Response post( JsonObject body, String uri){
+    public Response post( JsonObject body){
+        uri=baseuri+endPoint;
         return given().contentType("application/json").body(body.toString()).when().post(uri);
     }
 
-    public Response post(Map<String, String> headers, JsonObject body, String uri){
+    public Response post(Map<String, String> headers, JsonObject body){
+        uri=baseuri+endPoint;
         return given().headers(headers).body(body.toString()).when().post(uri);
     }
+
+
+
 }

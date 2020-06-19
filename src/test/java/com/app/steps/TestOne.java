@@ -17,7 +17,7 @@ public class TestOne {
         apiClassUtilities.jsonObject = apiTestDataUtilities.getJsonFromFile("src/test/Resources/testData/example.json");
         apiClassUtilities.baseuri = "baseuri";
         apiClassUtilities.endPoint = "endpoint";
-        JsonPath jsonPath = (JsonPath) apiClassUtilities.post(apiClassUtilities.jsonObject,apiClassUtilities.baseuri+apiClassUtilities.endPoint);
+        JsonPath jsonPath = (JsonPath) apiClassUtilities.post(apiClassUtilities.jsonObject);
         Assert.assertEquals(jsonPath.get("name"),"james");
     }
 }
